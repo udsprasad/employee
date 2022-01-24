@@ -1,0 +1,13 @@
+1) Spring components
+2) different Scopes
+3) Bean lifeCycle
+4) different type of ApplicationContext
+5) prototype in singleton scope
+6) Autowired
+7) Autowired types
+8) concurrent API
+9) Try resource
+10) Transactional
+11) Import vs ComponentScan
+12) Qualifier vs Primary
+13)

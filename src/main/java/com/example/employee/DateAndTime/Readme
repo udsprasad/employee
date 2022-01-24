@@ -1,0 +1,16 @@
+1) import java.time package for date and time in java8
+ implements Temporal
+2) first topic is instant class immutable
+   we have
+   Instant.MIN is 1 billion years ago
+   Instant.MAX is dec 31 of year 1,000,000,000
+   Instant.now() is current instant
+
+ 3) second concept is Duration class
+    it will tell the duration between two instants
+
+ 4) third is LocalDate class
+
+ 5) Period is amount of time between two LocalDates
+
+ 6) DateAdjuster
