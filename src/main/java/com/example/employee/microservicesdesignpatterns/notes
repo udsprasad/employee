@@ -1,0 +1,86 @@
+microservices architecture means style that structure an application as a
+collection of small autonomous services, modelled around a business
+domain, self-contained, self-sufficient and implements single business
+capability
+
+principles
+ 1) independent and autonomous services
+ 2) scalability
+ 3) decentralization
+ 4) resilient services - if one services is down then remaining services
+                          should work normally
+ 5) real time load balancing
+ 6) availability
+ 7)Isolation from failures - if one service is don then entire application
+                              should not be down
+ 8) continuous delivery for devops Integration
+
+we have different design patterns
+
+1)Decomposition pattern
+   a) decompose by business capability
+      consider ecommerce website - orders products and customers
+   b) decompose by subdomain
+      each model/domain driven model class
+   c) decompose by transactions
+   d) strangler pattern -
+     The Strangler Pattern is a popular design pattern to incrementally transform your monolithic application into microservices by replacing a particular functionality with a new service.
+     Once the new functionality is ready, the old component is strangled, the new service is put into use, and the old component is decommissioned altogether.
+2)Integration pattern
+    a) API Gateway Pattern -
+
+        problems - how to handle multiple protocol request
+                 - how to find the instance for particular request
+
+        * can convert the protocol request from one type to another
+        * api gateway acts as an entry point to forward client request
+        to appropiate microservices
+
+         api gateway ->  loadbalancer  -> service a
+                                       -> service b
+
+    b) Aggregator pattern -
+         * it is used to combine multiple source service response into one
+           and send back to client
+
+    c) Proxy pattern
+    d) gateway routing pattern
+    e) chained microservices pattern -
+         again two types synchronous and asynchronous messaging
+            * produces a single output which is combination of multiple chained
+            outputs.
+            * use synchronous http request or response for messaging.
+
+    f) branch pattern -
+       * simultaneously process the requests and responses from two or more
+       independent services
+
+        service a -> service b
+                  -> service c -> service d
+
+    g) Client-side UI composition pattern
+
+3)Database patterns
+     inconsistency and duplication
+    a) database per service
+    b) shared database per service
+    c) cqrs - command query responsibility segregator
+      command per one database and query for another database where materialized pattern
+    d) event sourcing - creates event reqarding the changes in the
+    application
+    e) saga pattern
+
+4)observability patterns
+    a)log aggregation - kibana
+    b)health check - health check endpoint per each service
+    c)distributed tracing - instana / appDynamics
+    d)performance metrics - instana / appDynamics
+
+5) Cross-cutting concern patterns
+  a)  external configuration
+  b)  service discovery - api management
+  c)  circuit breaker pattern - we are using spring retry instead circuit break pattern
+            network performance will decrease and client not aware particular service down
+      * used to stop the process of request and response
+      * if service is down or database is down
+  d) blue-green deployment pattern

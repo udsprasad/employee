@@ -19,6 +19,6 @@ public class DemoRunnable implements Runnable{
 
         // using lambda expression
         Runnable run = () -> System.out.println("****" + Thread.currentThread().getName() + "****");
-        new Thread(run,"Second");
+        new Thread(run,"Second").start();
     }
 }

@@ -1,0 +1,128 @@
+ JVM -  It is a specification that provides runtime environment in which java bytecode can be executed.
+
+ JRE - it is implementation of JVM. it exists physically. It contains a set of libraries + other files that JVM uses at runtime.
+       if you have jre use can use java command in command prompt
+
+ JDK - The Java Development Kit (JDK) is a software development environment which is used to develop Java applications and applets.
+       It physically exists. It contains JRE + development tools.
+
+ identifiers are the names that are used for the identification of all the various entities in java like classes, methods, variables, packages, etc.
+
+ Keywords are predefined, reserved words used in Java programming
+
+ variable - A variable is a container which holds the value
+ There are three types of variables in Java
+
+ local variable    -   A variable declared inside the body of the method is called local variable.
+ instance variable -   A variable declared inside the class but outside the body of the method, is called an instance variable
+ static variable   -   A variable that is declared as static is called a static variable. It cannot be local. You can create a single copy of the static variable and share it among all the instances of the class.
+                       Memory allocation for static variables happens only once when the class is loaded in the memory.
+
+ if else if - syntax
+
+     if(){
+
+     } else if(){
+
+     }
+
+ switch  - syntax
+
+    switch(condition){
+    case value1:
+    break;
+    case value2:
+    break;
+    default:
+    }
+
+OOPs concepts
+
+Object        -  The object is an entity which has state, behaviour and identity - it is used internally by jvm
+Class         -  A class is a group of objects which have common properties.
+                 It is a template or blueprint from which objects are created. It is a logical entity. It can't be physical.
+Inheritance   -  Inheritance in Java is a mechanism in which one object acquires all the properties and behaviors of a parent object. IS-A Dog and Animal
+                 1)Single  2)Multilevel 3)Hierarchical 4)multiple 5) hybrid
+Aggregation   -  If a class have an entity reference, it is known as Aggregation. Aggregation represents HAS-A relationship. person and address
+Polymorphism  -  Polymorphism is the ability of an object to take on many forms
+                 1)Method Overloading - If a class has multiple methods having same name but different in parameters,
+                 it is known as Method Overloading. compile time polymorphism.
+                 There are two ways to overload the method in java
+                 By changing number of arguments
+                 By changing the data type
+                 2)Method Overriding - If subclass (child class) has the same method as declared in the parent class, it is known as method overriding in Java.
+                     Method overriding is used for runtime polymorphism
+                 *** static method cannot be overridden. It is because the static method is bound with class whereas instance method is bound with an object.
+                     Static belongs to the class area, and an instance belongs to the heap area.
+
+                     Upcasting: Upcasting is the typecasting of a child object to a parent object. Upcasting can be done implicitly.
+                     Upcasting gives us the flexibility to access the parent class members but it is not possible to access all the child class members using this feature.
+                     Instead of all the members, we can access some specified members of the child class. For instance, we can access the overridden methods.
+                     Downcasting: Similarly, downcasting means the typecasting of a parent object to a child object. Downcasting cannot be implicit.
+
+                 *** As you can see in the above example, the return type of the get() method of A class is A but the return type of the get() method of B class is B.
+                     Both methods have different return type but it is method overriding. This is known as covariant return type.
+Abstraction  -  Abstraction is a process of hiding the implementation details and showing only functionality to the user.
+                abstract class has constructor but can't initialize but using anonymous class and interface doesn't have constructor
+
+                // Java code to demonstrate
+                // Anonymous class
+
+                public abstract class ClassOne {
+
+                    public void printSomething()
+                    {
+                        System.out.println("Hello in abstract class");
+                    }
+                }
+
+                class InheritClassOne {
+
+                    public static void main(String[] args)
+                    {
+                          // instance of abstract
+                                   // class "ClassOne"
+                                 ClassOne obj = new ClassOne(); // it will fail
+
+
+                        // obj points to anonymous subclass
+                        ClassOne obj = new ClassOne() {};
+
+                          // calls the implementation
+                          // provided by ClassOne
+                        obj.printSomething();
+                    }
+                }
+
+                interface - interface is blueprint for class
+                            All the members (methods and fields) of an interface are public.
+
+                            All the methods in an interface are public and abstract (except static and default).
+
+                            All the fields of an interface are public, static and, final by default.
+Encapsulation -
+
+Apart from these concepts, there are some other terms which are used in Object-Oriented design:
+
+Coupling
+Cohesion
+Association
+Composition
+
+static - The static keyword in Java is used for memory management mainly.
+         The static variable can be used to refer to the common property of all objects
+         The static variable gets memory only once in the class area at the time of class loading.
+
+this -  this is a reference variable that refers to the current object.
+
+super - The super keyword in Java is a reference variable which is used to refer immediate parent class object.
+
+final - The final keyword can be applied with the variables, a final variable that have no value it is called blank final variable or uninitialized final variable.
+        It can be initialized in the constructor only. The blank final variable can be static also which will be initialized in the static block only
+
+        final method
+        If you make any method as final, you cannot override it.But final method is inherited but you cannot override it
+
+        final class
+        If you make any class as final, you cannot extend it.
+

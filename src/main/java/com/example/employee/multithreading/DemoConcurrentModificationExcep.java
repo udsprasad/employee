@@ -34,5 +34,13 @@ public class DemoConcurrentModificationExcep {
         list.removeIf(value -> value.equals(2));
         System.out.println(list);
 
+        Map<String,Integer> map = new HashMap<>(){{
+            put("one",1);
+            put("two",2);
+            put("three",3);
+        }};
+         for(Map.Entry entry: map.entrySet()){
+             System.out.println(entry.getKey() +" "+ entry.getValue());
+         }
     }
 }

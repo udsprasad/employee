@@ -10,4 +10,5 @@
 10) Transactional
 11) Import vs ComponentScan
 12) Qualifier vs Primary
-13)
+13)I believe @ElementCollection is mainly for mapping non-entities (embeddable or basic) while @OneToMany is used to map entities.
+So which one to use depend on what you want to achieve.
