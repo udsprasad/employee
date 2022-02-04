@@ -1,0 +1,39 @@
+@Entity
+@Id
+@SequenceGenerator
+@GeneratedValue
+@Column -> columndefinition
+JPArepository extends pagingandsortingrepository
+ddl-auto : validate
+           | update - The database schema will be updated by comparing the existing database schema with the entity mappings.
+           | create
+           | create-drop
+
+
+uniqueContraints In
+              @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "personNumber", "isActive" }) })
+
+@attributeoverrides
+
+JPQL uses ur class name
+
+realtionships
+
+one to one
+one to many vs Element Collection
+many to one
+many to many
+
+@joincolumn
+@joincolums
+@jointable
+
+cascadeType - all
+              persist
+              remove
+              merge
+              refresh
+              detach
+
+fetchtype - lazy
+            eager
