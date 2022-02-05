@@ -1,0 +1,32 @@
+ Spring REST Client — RestTemplate
+
+ WebClient is a modern, alternative HTTP client to RestTemplate.
+ Not only does it provide a traditional synchronous API, but it also supports an efficient nonblocking and
+ asynchronous approach
+
+ 1)Use GET to Retrieve Resources
+
+   ResponseEntity<Map> response =
+   restTemplate.getForEntity("http://localhost:8080", Map.class);// returns Response Entity
+
+   Map response1 = restTemplate.getForObject("http://localhost:8080", Map.class); // returns  Object
+
+
+ 2)Use HEAD to Retrieve Headers
+
+ HttpHeaders httpHeaders = restTemplate.headForHeaders(fooResourceUrl);
+
+ 3)Use POST to Create a Resource
+
+ In order to create a new Resource in the API,
+ we can make good use of the postForLocation(), postForObject() or postForEntity() APIs.
+
+ HttpEntity<Foo> request = new HttpEntity<>(new Foo("bar"));
+ Foo foo = restTemplate.postForObject(fooResourceUrl, request, Foo.class);
+
+ HttpEntity<Foo> request = new HttpEntity<>(new Foo("bar"));
+ ResponseEntity<Foo> response = restTemplate
+   .exchange(fooResourceUrl, HttpMethod.POST, request, Foo.class);
+
+
+ 4)Use PUT to Update a Resource
