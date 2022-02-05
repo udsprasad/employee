@@ -12,3 +12,23 @@
 12) Qualifier vs Primary
 13)I believe @ElementCollection is mainly for mapping non-entities (embeddable or basic) while @OneToMany is used to map entities.
 So which one to use depend on what you want to achieve.
+14) @request param vs path variable
+15)model vs modelmap vs modelattrubutes vs model and view -
+   Model defines a holder for model attributes and is primarily designed for adding attributes to the model.
+    example : model.addAttribute("message", message);
+
+   ModelMap is an extension of Model with the ability to store attributes in a map and chain method calls.
+   example :  map.addAttribute("message", message).addAttribute("time", time);
+
+  ModelAndView is a holder for a model and a view; it allows to return both model and view in one return value
+  example : var mav = new ModelAndView();
+
+          mav.addObject("message", message);
+          mav.setViewName("show");
+
+          return mav;
+
+   @modelAttribute to capture form parameters
+   @RequestBody to capture entire request
+
+16)valid vs validate

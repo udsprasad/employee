@@ -1,16 +1,33 @@
 package com.example.employee.Streams;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ThirdGreatestNumber {
     public static void main(String[] args){
         List<Integer> list = Arrays.asList(1,4,5,6,7,8);
-        usingStreamfunction1(list);
-        System.out.println(usingStreamfunction2(list));
-        System.out.println(usingNormalFunction(list));
+        //usingStreamfunction1(list);
+        //System.out.println(usingStreamfunction2(list));
+        //System.out.println(usingNormalFunction(list));
+        Map<String,Integer> map = new HashMap<>();
+        String name ="ramarajuarunan";
+        System.out.println(printThirdHighestLetter(name,map));
+    }
+    private static String printThirdHighestLetter(String name, Map<String,Integer> map){
+        for(String s:name.split("")){
+            if(map.containsKey(s))
+                map.replace(s,map.get(s)+1);
+            else
+                map.put(s,1);
+        }
+        Optional<Map.Entry<String,Integer>> min=map.entrySet().stream().sorted((i, r) ->Integer.compare(r.getValue(),i.getValue())).limit(3).
+                min((i,r) ->Integer.compare(r.getValue(),i.getValue()));
+        System.out.println(map.entrySet().stream()
+                .sorted((i, r) ->Integer.compare(r.getValue(),i.getValue()))
+                .limit(3)
+                .collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue))
+                );
+        return min.get().getKey();
     }
 
     private static Integer usingNormalFunction(List<Integer> list) {
