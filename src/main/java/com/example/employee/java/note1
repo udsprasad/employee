@@ -195,6 +195,85 @@ Abstraction  -  Abstraction is a process of hiding the implementation details an
 
                             All the fields of an interface are public, static and, final by default.
 
+                13) If there are two or more same methods in two interfaces and a class implements both interfaces, implementation of the method once is enough.
+
+                interface A
+                {
+                   public void aaa();
+                }
+                interface B
+                {
+                   public void aaa();
+                }
+                class Central implements A,B
+                {
+                   public void aaa()
+                   {
+                        //Any Code here
+                   }
+                   public static void main(String args[])
+                   {
+                        //Statements
+                    }
+                }
+                14) A class cannot implement two interfaces that have methods with same name but different return type.
+
+                interface A
+                {
+                   public void aaa();
+                }
+                interface B
+                {
+                   public int aaa();
+                }
+
+                class Central implements A,B
+                {
+
+                   public void aaa() // error
+                   {
+                   }
+                   public int aaa() // error
+                   {
+                   }
+                   public static void main(String args[])
+                   {
+
+                   }
+                }
+
+                15) Variable names conflicts can be resolved by interface name.
+
+                interface A
+                {
+                    int x=10;
+                }
+                interface B
+                {
+                    int x=100;
+                }
+                class Hello implements A,B
+                {
+                    public static void Main(String args[])
+                    {
+                       /* reference to x is ambiguous both variables are x
+                        * so we are using interface name to resolve the
+                        * variable
+                        */
+                       System.out.println(x);
+                       System.out.println(A.x);
+                       System.out.println(B.x);
+                    }
+                }
+
+                Q) What is marker or tagged interface?
+
+                An interface which has no member is known as a marker or tagged interface, for example, Serializable, Cloneable, Remote, etc. They are used to provide some essential information to the JVM so that JVM may perform some useful operation.
+
+                //How Serializable interface is written?
+                public interface Serializable{
+                }
+                
 Encapsulation - Encapsulation in Java is a process of wrapping code and data together into a single unit.
                 is to make sure that "sensitive" data is hidden from users
 
@@ -274,6 +353,16 @@ static - The static keyword in Java is used for memory management mainly.
          The static variable can be used to refer to the common property of all objects
          The static variable gets memory only once in the class area at the time of class loading.
 
+         this and super cannot be used in static context.
+
+         Java static block
+         Is used to initialize the static data member.
+         It is executed before the main method at the time of classloading.
+
+         Can we execute a program without main() method?
+         Ans) No, one of the ways was the static block, but it was possible till JDK 1.6.
+         Since JDK 1.7, it is not possible to execute a Java class without the main method.
+
 this -  this is a reference variable that refers to the current object.
 
 super - The super keyword in Java is a reference variable which is used to refer immediate parent class object.
@@ -281,9 +370,12 @@ super - The super keyword in Java is a reference variable which is used to refer
 final - The final keyword can be applied with the variables, a final variable that have no value it is called blank final variable or uninitialized final variable.
         It can be initialized in the constructor only. The blank final variable can be static also which will be initialized in the static block only
 
+        If you make any variable as final, you cannot change the value of final variable(It will be constant).
+
         final method
         If you make any method as final, you cannot override it.But final method is inherited but you cannot override it
 
         final class
         If you make any class as final, you cannot extend it.
 
+*** Instance Initializer block - The java compiler copies the instance initializer block in the constructor after the first statement super()

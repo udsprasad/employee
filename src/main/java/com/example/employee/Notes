@@ -57,3 +57,5 @@ So which one to use depend on what you want to achieve.
 26) spring mvc flow
 
 27)BindingResult holds the result of a validation and binding and contains errors that may have occurred.
+
+28) how many ways we can create object in java.
