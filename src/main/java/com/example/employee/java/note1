@@ -1,14 +1,17 @@
- JVM -  It is a specification that provides runtime environment in which java bytecode can be executed.
-
+ JVM - It is a specification that provides runtime environment in which java bytecode can be executed.
+       Class area - static variables ,  heap - objects , string pool - string objects
  JRE - it is implementation of JVM. it exists physically. It contains a set of libraries + other files that JVM uses at runtime.
        if you have jre use can use java command in command prompt
 
  JDK - The Java Development Kit (JDK) is a software development environment which is used to develop Java applications and applets.
        It physically exists. It contains JRE + development tools.
+       development tools eg: javac, java, javadoc
 
  identifiers are the names that are used for the identification of all the various entities in java like classes, methods, variables, packages, etc.
 
- Keywords are predefined, reserved words used in Java programming
+ literal - Any constant value which can be assigned to the variable is called literal/constant.
+
+ Keywords are predefined, reserved words used in Java programming . around 51 keywords are there
 
  variable - A variable is a container which holds the value
  There are three types of variables in Java
@@ -17,6 +20,8 @@
  instance variable -   A variable declared inside the class but outside the body of the method, is called an instance variable
  static variable   -   A variable that is declared as static is called a static variable. It cannot be local. You can create a single copy of the static variable and share it among all the instances of the class.
                        Memory allocation for static variables happens only once when the class is loaded in the memory.
+
+ An enum is a special "class" that represents a group of constants (unchangeable variables, like final variables).
 
  if else if - syntax
 
@@ -28,6 +33,7 @@
 
  switch  - syntax
 
+    Since Java 7, you can use strings in the switch statement.
     switch(condition){
     case value1:
     break;
@@ -36,30 +42,115 @@
     default:
     }
 
+  do-while loop is called an exit control loop
+
 OOPs concepts
+
+object oriented programming always deals with objects
 
 Object        -  The object is an entity which has state, behaviour and identity - it is used internally by jvm
 Class         -  A class is a group of objects which have common properties.
                  It is a template or blueprint from which objects are created. It is a logical entity. It can't be physical.
+
 Inheritance   -  Inheritance in Java is a mechanism in which one object acquires all the properties and behaviors of a parent object. IS-A Dog and Animal
                  1)Single  2)Multilevel 3)Hierarchical 4)multiple 5) hybrid
+
+                 subclass (child) - the class that inherits from another class
+                 superclass (parent) - the class being inherited from
+
+                 class Vehicle {
+                   protected String brand = "Ford";
+                   public void honk() {
+                     System.out.println("Tuut, tuut!");
+                   }
+                 }
+
+                 class Car extends Vehicle {
+                   private String modelName = "Mustang";
+                   public static void main(String[] args) {
+                     Car myFastCar = new Car();
+                     myFastCar.honk();
+                     System.out.println(myFastCar.brand + " " + myFastCar.modelName);
+                   }
+                 }
+
+                 above example we are not overriding the honk method.still it is working
+
 Aggregation   -  If a class have an entity reference, it is known as Aggregation. Aggregation represents HAS-A relationship. person and address
+
 Polymorphism  -  Polymorphism is the ability of an object to take on many forms
                  1)Method Overloading - If a class has multiple methods having same name but different in parameters,
                  it is known as Method Overloading. compile time polymorphism.
                  There are two ways to overload the method in java
                  By changing number of arguments
                  By changing the data type
+
+                 ** if you change return type then we will ambiguity problem
+                 example : class Adder{
+                           static int add(int a,int b){return a+b;}
+                           static double add(int a,int b){return a+b;}
+                           }
+                           class TestOverloading3{
+                           public static void main(String[] args){
+                           System.out.println(Adder.add(11,11));//ambiguity
+                           }}
+
+                 Can we overload java main() method?
+                 Yes, by method overloading. You can have any number of main methods in a class by method overloading.
+                 But JVM calls main() method which receives string array as arguments only.
+                 Let's see the simple example: class TestOverloading4{
+                                               public static void main(String[] args){System.out.println("main with String[]");}
+                                               public static void main(String args){System.out.println("main with String");}
+                                               public static void main(){System.out.println("main without args");}
+                                               }
+
+                                     output: main with String[]
+
+                 Method Overloading with TypePromotion
+                 One type is promoted to another implicitly if no matching datatype is found
+
+                 class OverloadingCalculation1{
+                   void sum(int a,long b){System.out.println(a+b);}
+                   void sum(int a,int b,int c){System.out.println(a+b+c);}
+
+                   public static void main(String args[]){
+                   OverloadingCalculation1 obj=new OverloadingCalculation1();
+                   obj.sum(20,20);//now second int literal will be promoted to long
+                   obj.sum(20,20,20);
+
+                   }
+                 }
+                 it will works
+
+                 In method overloading first it will looks for matches if not found try for type promotion
+
                  2)Method Overriding - If subclass (child class) has the same method as declared in the parent class, it is known as method overriding in Java.
                      Method overriding is used for runtime polymorphism
                  *** static method cannot be overridden. It is because the static method is bound with class whereas instance method is bound with an object.
                      Static belongs to the class area, and an instance belongs to the heap area.
+
+                      1)Can we override java main method?
+                      ans)No, because the main is a static method.
 
                      Upcasting: Upcasting is the typecasting of a child object to a parent object. Upcasting can be done implicitly.
                      Upcasting gives us the flexibility to access the parent class members but it is not possible to access all the child class members using this feature.
                      Instead of all the members, we can access some specified members of the child class. For instance, we can access the overridden methods.
                      Downcasting: Similarly, downcasting means the typecasting of a parent object to a child object. Downcasting cannot be implicit.
 
+
+                      class A{
+                      A get(){return this;}
+                      }
+
+                      class B1 extends A{
+                      @Override
+                      B1 get(){return this;}
+                      void message(){System.out.println("welcome to covariant return type");}
+
+                      public static void main(String args[]){
+                      new B1().get().message();
+                      }
+                      }
                  *** As you can see in the above example, the return type of the get() method of A class is A but the return type of the get() method of B class is B.
                      Both methods have different return type but it is method overriding. This is known as covariant return type.
 Abstraction  -  Abstraction is a process of hiding the implementation details and showing only functionality to the user.
@@ -94,6 +185,9 @@ Abstraction  -  Abstraction is a process of hiding the implementation details an
                     }
                 }
 
+                Abstract class can have final, non-final, static and non-static variables.
+                The interface has only static and final variables.
+
                 interface - interface is blueprint for class
                             All the members (methods and fields) of an interface are public.
 
@@ -101,8 +195,33 @@ Abstraction  -  Abstraction is a process of hiding the implementation details an
 
                             All the fields of an interface are public, static and, final by default.
 
-Encapsulation - Encapsulation in Java is a process of wrapping code and data together into a single unit,
+Encapsulation - Encapsulation in Java is a process of wrapping code and data together into a single unit.
+                is to make sure that "sensitive" data is hidden from users
 
+                declare class variables/attributes as private
+                provide public get and set methods to access and update the value of a private variable
+
+Package - A package in Java is used to group related classes.
+
+method -  method in Java is a collection of instructions that performs a specific task.
+          different types of methods :
+
+          Static Method - The main advantage of a static method is that we can call it without creating an object
+
+          Instance Method / non static methods - Before calling or invoking the instance method, it is necessary to create an object of its class.
+
+          There are two types of instance method:
+
+          Accessor Method - The method(s) that reads the instance variable(s) is known as the accessor ex: getter mmethods
+          Mutator Method -   The method(s) read the instance variable(s) and also modify the values. ex:setters
+
+          abstract method - The method that does not has method body is known as abstract method.
+
+          factory method  - It is a method that returns an object to the class to which it belongs.
+                            All static methods are factory methods. For example, NumberFormat obj = NumberFormat.getNumberInstance();
+
+A constructor in Java is a special method that is used to initialize objects. The constructor is called when an object of a class is created.
+                - constructor name must match the class name
 
 access modifiers - the access modifiers in Java specifies the accessibility or scope of a field, method, constructor, or class.
                    there are four types of access modifiers
@@ -115,6 +234,8 @@ access modifiers - the access modifiers in Java specifies the accessibility or s
                    private - The access level of a private modifier is only within the class. It cannot be accessed from outside the class.
 
                    very Important
+
+                   For classes, you can use either public or default
 
                    If you are overriding any method, overridden method (i.e. declared in subclass) must not be more restrictive.
 

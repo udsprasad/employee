@@ -6,7 +6,7 @@
 6) Autowired
 7) Autowired types
 8) concurrent API
-9) Try resource
+9) Try resource using autocloseable interface
 10) Transactional
 11) Import vs ComponentScan
 12) Qualifier vs Primary
@@ -32,3 +32,28 @@ So which one to use depend on what you want to achieve.
    @RequestBody to capture entire request
 
 16)valid vs validate
+
+17) Important link : https://javahungry.blogspot.com/2020/10/java-interview-questions-for-2-years-experience.html
+
+18) fibonacci vs factorial vs armstrong
+19) sqrt number with sqrt function
+20) subsetString
+20) @async and @retryable should not be one class because these annotation will create proxy classes
+21) concurrentmodificationException - it arises due to change in the size like add and remove operation list
+    and map.remove operation will throw this exception
+22) LongestRepeatingSequenceString
+23) PermutationString
+
+24)web.xml is also known as the Deployment Descriptor which has definitions of the servlets and their mappings, filters, and lifecycle listeners.
+   It is also used for configuring the ContextLoaderListener. Whenever the application is deployed,
+   a ContextLoaderListener instance is created by Servlet container which leads to a load of WebApplicationContext
+
+25) very important : 52. Are singleton beans thread-safe?
+                     No, the singleton beans are not thread-safe because the concept of thread-safety essentially deals with the execution of the program and the singleton is simply a design pattern meant for the creation of objects. Thread safety nature of a bean depends on the nature of its implementation.
+
+                     53. How can you achieve thread-safety in beans?
+                     The thread safety can be achieved by changing the scope of the bean to request, session or prototype but at the cost of performance. This is purely based on the project requirements
+
+26) spring mvc flow
+
+27)BindingResult holds the result of a validation and binding and contains errors that may have occurred.
