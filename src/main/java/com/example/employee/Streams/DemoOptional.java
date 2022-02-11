@@ -12,7 +12,8 @@ public class DemoOptional {
     public static void main(String[] args){
      // Optional
         List<Integer> list = Arrays.asList(1,4,5,6,7,8);
-        String s="";
+        String s=null;
         System.out.println(Optional.empty().orElse("Hai"));
+
     }
 }
