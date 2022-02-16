@@ -1,0 +1,147 @@
+ Multithreading - Multithreading in Java is a process of executing multiple threads independently at the
+                  same time but sharing the process resources simultaneously.
+
+ thread - Threads are basically the lightweight and smallest unit of processing that can be managed
+          independently by a scheduler
+
+ 1)Process-based Multitasking (Multiprocessing)
+     * Each process has an address in memory. In other words, each process allocates a separate memory area.
+     * A process is heavyweight.
+     * Cost of communication between the process is high.
+     * Switching from one process to another requires some time for saving and loading registers, memory maps, updating lists, etc.
+ 2) Thread-based Multitasking (Multithreading)
+    * Threads share the same address space.
+    * A thread is lightweight.
+    * Cost of communication between the thread is low.
+
+ 4. What's the difference between thread and process?
+ Thread: It simply refers to the smallest units of the particular process.
+         It has the ability to execute different parts (referred to as thread) of the program at the same time.
+
+ Process: It simply refers to a program that is in execution i.e., an active program.
+          A process can be handled using PCB (Process Control Block).
+
+
+ different methods in thread
+   start(): In simple words, the start() method is used to start or begin the execution of a newly
+            created thread. When the start() method is called, a new thread is created and this
+            newly created thread executes the task that is kept in the run() method.
+            One can call the start() method only once.
+
+   run(): In simple words, the run() method is used to start or begin the execution of the same thread.
+          When the run() method is called, no new thread is created as in the case of the start() method.
+          This method is executed by the current thread. One can call the run() method multiple times.
+
+   sleep() : It sleeps a thread for the specified amount of time. ex: Thread.sleep();
+
+   currentThread() : It returns a reference to the currently executing thread object.
+
+   join()	It waits for a thread to die.
+
+   getPriority()	It returns the priority of the thread.
+
+   setPriority() method of thread class is used to change the thread's priority. Every thread has a priority which is represented by the integer number between 1 to 10.
+
+   Thread class provides 3 constant properties:
+
+   public static int MIN_PRIORITY: It is the maximum priority of a thread. The value of it is 1.
+   public static int NORM_PRIORITY: It is the normal priority of a thread. The value of it is 5.
+   public static int MAX_PRIORITY: It is the minimum priority of a thread. The value of it is 10.
+
+   yield()	It causes the currently executing thread object to pause and allow other threads to execute temporarily.
+
+   notify()	It is used to give the notification for only one thread which is waiting for a particular object.
+
+   notifyAll()	It is used to give the notification to all waiting threads of a particular object.
+
+   What’s the difference between class lock and object lock?
+   Class Lock: In java, each and every class has a unique lock usually referred to as a class level lock. These locks are achieved using the keyword ‘static synchronized’ and can be used to make static data thread-safe. It is generally used when one wants to prevent multiple threads from entering a synchronized block.
+
+   Example:
+
+   public class ClassLevelLockExample
+   {
+     public void classLevelLockMethod()
+    {
+        synchronized (ClassLevelLockExample.class)
+          {
+               //DO your stuff here
+          }
+    }
+   }
+   Object Lock: In java, each and every object has a unique lock usually referred to as an object-level lock. These locks are achieved using the keyword ‘synchronized’ and can be used to protect non-static data. It is generally used when one wants to synchronize a non-static method or block so that only the thread will be able to execute the code block on a given instance of the class.
+
+   Example:
+
+   public class ObjectLevelLockExample
+   {
+     public void objectLevelLockMethod()
+    {
+        synchronized (this)
+          {
+               //DO your stuff here
+          }
+    }
+   }
+
+   In Java, a thread always exists in any one of the following states. These states are:
+
+   New: Whenever a new thread is created, it is always in the new state.
+        For a thread in the new state, the code has not been run yet and thus has not begun its execution.
+   Runnable
+   Running
+   Blocked / Waiting
+   Timed Waiting
+   Terminated
+
+  What if we call Java run() method directly instead start() method?
+  Each thread starts in a separate call stack.
+  Invoking the run() method from the main thread, the run() method goes onto the current call stack
+  rather than at the beginning of a new call stack.
+
+  Daemon : Daemon thread in Java is a service provider thread that provides services to the user thread.
+  Its life depend on the mercy of user threads i.e. when all the user threads dies, JVM terminates
+  this thread automatically.
+
+  There are many java daemon threads running automatically e.g. gc, finalizer etc.
+
+ how to create daemon thread -> setDaemon(true);
+
+ Java Thread pool represents a group of worker threads that are waiting for the job and reused many times.
+
+ newFixedThreadPool(int s): The method creates a thread pool of the fixed size s.
+
+ newCachedThreadPool(): The method creates a new thread pool that creates the new threads when needed
+                        but will still use the previously created thread whenever they are available to use.
+
+ newSingleThreadExecutor(): The method creates a new thread.
+
+ A special construct that facilitates the developers to add some code that has to be run when the
+ Java Virtual Machine (JVM) is shutting down is known as the Java shutdown hook.
+
+ Garbage Collection is process of reclaiming the runtime unused memory automatically. In other words,
+ it is a way to destroy the unused objects.
+
+  *** Note: The Garbage collector of JVM collects only those objects that are created by new keyword.
+  So if you have created any object without new, you can use finalize method to perform cleanup
+  processing (destroying remaining objects).
+
+  *** Note: Garbage collection is performed by a daemon thread called Garbage Collector(GC).
+  This thread calls the finalize() method before object is garbage collected.
+
+  A shutdown hook is simply a thread that is invoked implicitly before JVM shuts down. It is one of the most important features of JVM because it provides the capacity to do resource cleanup or save application state JVM shuts down.  By calling the halt(int) method of the Runtime class, the shutdown hook can be stopped. Using the following method, one can add a shutdown hook.
+
+  public void addShutdownHook(Thread hook){}
+  Runtime r=Runtime.getRuntime();
+  r.addShutdownHook(new MyThread());
+
+  ExecutorService - ExecutorService is the interface which allows us to execute tasks on threads
+                    asynchronously
+
+  CompletableFuture - completableFuture is used for asynchronous programming in Java.
+  A Future is used as a reference to the result of an asynchronous computation
+
+  runAsync() returns a Void while supplyAsync() returns a value obtained by the Supplier
+
+  The CompletableFuture. join() method is similar to the get method,
+  but it throws an unchecked exception in case the Future does not complete normally

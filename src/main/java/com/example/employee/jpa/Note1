@@ -1,6 +1,34 @@
+
+JPA -   JPA (Java Persistence API) is a Java EE and Java SE specification that describes a
+    management system for saving java objects to relational database tables in a convenient form
+
+What is difference between JPA and Hibernate?
+JPA is the interface while Hibernate is the implementation.
+
+Following are the some ORM frameworks:
+
+TopLink
+ORMLite
+iBATIS
+JPOX
+
+@Access - By default, you specify the access strategy implicitly by annotating your primary key attribute or its getter method with an @Id annotation.
+          If you annotate the attribute itself, Hibernate uses field-based access.
 @Entity
+
+4) Entity class cannot be enum or interface,
+
+5) Entity class cannot be final class,
+
+@Inheritance(strategy=JOINED)
+MappedSuperclass – the parent classes, can't be entities
+Single Table – The entities from different classes with a common ancestor are placed in a single table.
+Joined Table – Each class has its table, and querying a subclass entity requires joining the tables.
+Table per Class – In table-per-class strategy, for each sub entity class a separate table is generated.
+                  Unlike joined strategy, no separate table is generated for parent entity class in table-per-class strategy.
 @Id
 @SequenceGenerator
+@TableGenerator
 @GeneratedValue
 @Column -> columndefinition
 JPArepository extends pagingandsortingrepository
@@ -17,12 +45,37 @@ uniqueContraints In
 
 JPQL uses ur class name
 
-realtionships
+JPQL (Java Persistence Query Language) is an object-oriented query language used to perform
+database operations on persistent entities. JPQL uses the entity object model instead of the
+database table to execute SQL queries.
 
-one to one
+persist - It always make a new entity and never updates an entity. Otherwise,
+          it throws an exception (EntityExistsException) as a consequence of
+          primary key uniqueness violation.
+
+
+merge  - It inserts or updates an entity in the database.
+
+What is embeddable class in JPA?
+An entity may have references of other non-entity classes. Such non-entity classes are referred as
+embeddable classes.
+All fields in the embeddable class are mapped to the owner entity table.
+@Embeddable annotation is used for a non-entity class.
+This is the class that needs to be embedded in an entity class.
+
+What are the different types of entity mapping?
+Ans:
+Following are the types of object-relational mapping:
+One-to-one mapping: This mapping is a single-value association where an instance of one entity is associated with an instance of another entity. Which indicates that one instance of the source entity can be mapped to at most one instance of the target entity.
+One-To-Many mapping: This mapping falls under the category of collection-valued association where an entity is associated with a collection of other entities. This implies that the instance of one entity can be mapped with any number of instances of another entity.
+Many-to-one mapping: This mapping a single-valued association in which a collection of entities can be associated with the similar entity. This implies that more than one row of an entity can refer to the same row of another entity.
+Many-to-many mapping: This mapping is a collection-valued association in which any number of entities can be associated with a collection of other entities. This means that more than one row of one entity can refer to more than one row of another entity.
+
+What is Entity?
+Entity is a lightweight persistent domain object. The main program entity is the entity class,
+which can also use additional classes that can be used as auxiliary classes or to maintain state of the entity.
+
 one to many vs Element Collection
-many to one
-many to many
 
 @joincolumn
 @joincolums
@@ -37,3 +90,37 @@ cascadeType - all
 
 fetchtype - lazy
             eager
+
+@IdClass vs @EmbeddedId - composite identifier
+
+important link: https://docs.jboss.org/hibernate/orm/5.3/userguide/html_single/Hibernate_User_Guide.html#access
+
+@GeneratedValue(
+		strategy = GenerationType.TABLE,
+		generator = "table-generator"
+	)
+	@TableGenerator(
+		name =  "table-generator",
+		table = "table_identifier",
+		pkColumnName = "table_name",
+		valueColumnName = "product_id",
+		allocationSize = 5
+	)
+	private Long id;
+
+@Enumerated
+   The @Enumerated annotation is used to specify that an entity attribute represents an enumerated type
+
+What is Mapped Superclass?
+Mapped Superclass is a class from which Entity is inherited
+
+What are the four lifecycle status of an Entity Instance’s Life Cycle you can list?
+An Entity object has four lifecycle status: new, managed, detached, or removed. Their description
+
+1) new – the object has been created but has not yet generated primary keys and has not yet been saved in the database,
+
+2) managed – the object has been created, managed by JPA, has generated primary keys,
+
+3) detached – the object has been created, but not managed (or no longer managed) JPA,
+
+4) removed – the object is created, managed by JPA, but will be deleted after commit’a transaction.
