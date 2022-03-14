@@ -1,0 +1,20 @@
+lambda experssion - Lambda expression is used to provide the implementation of an interface
+                    which has functional interface. / to instantiate the anonymous class
+
+lambda expression is datatype functional interface
+
+functional interfaces are four categories
+
+supplier<T> - T get()
+consumer<T> - void accept(T t)
+predicate<T> - boolean test(T t)
+function<T,R> - R apply(T)
+
+what is stream?
+
+stream is Java-typed interface
+the object doesn't hold any data
+the object shouldn't change any data on which it is operated
+
+
+

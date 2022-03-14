@@ -1,0 +1,51 @@
+select * from employee order by joiningdate desc limit 10;
+
+select count(department.userID) from department group by department.name;
+
+
+array =[1,2,34,5,6,7]
+
+class MinAndMax{
+public static void main(String[] args){
+int[] array =[1,2,34,5,6,7];
+int len =array.length;
+int max=0,min=Integer.MAX_VALUE;
+for(int i=0;i<len;i++){
+if(i>max){
+max=i;
+}
+else if(i<min){
+min=i;
+}
+}
+Systemout.println(min+" "+max);
+}
+}
+
+Map<String,String> map = new HashMap(){{
+put("first","1");
+put("second","2")
+}};
+map.forEach(System.out::println) or forEach((k,v)-> sysout(k+" "+v));
+map.entrySet().stream().foreach(System.out::println);
+
+User entity 20 attributes VO first,last,email
+
+List<User> list
+
+List<UserVO> list1;
+
+for(User u: list){
+UserVO userVO = UserVO.Builder().firstName(u.firstName).lastName(u.lastName).email(u.email).build();
+list1.add(userVO);
+}
+
+//beanutils.copy
+
+url/1/    vs url?
+pathvariable vs request param
+
+onceperRequest
+request,response filterchain
+
+request.header("httpauthtoken")
