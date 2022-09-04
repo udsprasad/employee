@@ -1,0 +1,6 @@
+How to configure Kibana in spring boot
+
+firstly we should know What is ELK and next logback
+
+after how configure logback.xml with appender to create a file of logs and then configure logstach.xml to mention
+input an filter logic in it
