@@ -1,0 +1,8 @@
+1) SQL query to find second highest salary?
+a) SELECT name, MAX(salary) AS salary
+   FROM employee
+   WHERE salary <> (SELECT MAX(salary)
+   FROM employee);
+
+2) MySQL Find Duplicate Records
+a)

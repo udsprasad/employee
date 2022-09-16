@@ -5,6 +5,6 @@ public class DemoString {
        String s= "test";
        String s1= new String("test");
        String s2 = new String("test").intern();
-        System.out.println(s1==s2);
+        System.out.println(s==s2);
     }
 }
