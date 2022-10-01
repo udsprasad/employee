@@ -1,3 +1,11 @@
+recursion - without conditions will become infinite loop - stackoverflow exception
+
+didn't give any default values to local variable. what would be the behaviour
+
+The local variables do not have any default values in Java.
+This means that they can be declared and assigned a value before the variables are
+used for the first time, otherwise, the compiler throws an error.
+
 when we will get out of memory error
   An easy way to solve OutOfMemoryError in java is to increase the maximum heap size by using JVM options "-Xmx512M",
   this will immediately solve your OutOfMemoryError.
