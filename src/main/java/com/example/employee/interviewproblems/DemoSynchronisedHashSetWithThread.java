@@ -1,9 +1,6 @@
 package com.example.employee.interviewproblems;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class DemoSynchronisedHashSetWithThread {
     public static void main(String[] args){
@@ -22,8 +19,8 @@ public class DemoSynchronisedHashSetWithThread {
         for(String string: s){
             System.out.println(string); //first prints A and then throw exceptions
             System.out.println(s.size());
-            s.add("D");
-            s.add("E");
+            //s.add("D");
+            //s.add("E");
         }
 
     }

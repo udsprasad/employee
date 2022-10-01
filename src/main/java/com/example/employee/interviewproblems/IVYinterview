@@ -1,0 +1,20 @@
+when we will get out of memory error
+  An easy way to solve OutOfMemoryError in java is to increase the maximum heap size by using JVM options "-Xmx512M",
+  this will immediately solve your OutOfMemoryError.
+
+can we override static methods - learn overhiding concept
+
+in streams foreach is possible with break
+
+question max value in the array should equals to remaining elements
+int a[] = {10,30,100,40,20};
+     int max =a[0],sum=0;
+     for(int i=0;i<a.length;i++){
+         if(max<a[i]){
+             max=a[i];
+         }
+         sum+=a[i];
+     }
+     if(sum-max==max){
+         System.out.println(true);
+     }
