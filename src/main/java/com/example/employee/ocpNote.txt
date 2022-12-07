@@ -1,0 +1,24 @@
+oc commands
+
+ first
+ 
+ oc login
+ oc project
+ oc create secret
+ oc apply -f jwt-dev.yml
+ helm version
+ helm repo update
+ helm sreach repo
+ helm upgrade --install  values-dev.yml
+ 
+ oc apply -f network.yml
+ oc apply -instana alerts
+ 
+ pcf commands
+ 
+ cf7 login
+ cf7 target -s -o -s means space and -o means organisation
+ cf7 push 
+ 
+ 
+ 
