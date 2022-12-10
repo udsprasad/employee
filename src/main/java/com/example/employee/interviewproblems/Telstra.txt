@@ -1,0 +1,32 @@
+question 1:
+        int[] array1 ={1,2,3,4};
+        int[] array2 = new int[5];
+        for(int i=0;i<array1.length;i++){
+            array2[i]=array1[i];
+        }
+        System.out.println(array2[4]);
+
+solution is zero
+
+question 2:
+      List<Map<String,String>> list = new ArrayList<>();// line 1
+            list.add(new HashMap<>()); // line 2
+            Map<?,?> map = list.get(0); // line 3
+            map.put("key","value"); //line 4
+
+solution : you will get the error in line 4 bcz in line three you define map with ?
+
+
+question 3 :  A stream pipeline consists of a source
+(which might be an array, a collection, a generator function, an I/O channel, etc);
+
+question 4:  List<Integer> list = Arrays.asList(2,4,6,7,8);
+                  list.stream().allMatch(i->{
+                      System.out.println(i);
+                      return i%2 ==0;
+                  });
+
+solution is {2, 4 ,6 ,7}
+
+prepare jdbctemplate
+prepare loggerFactory
