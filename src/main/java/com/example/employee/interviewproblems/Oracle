@@ -3,3 +3,10 @@ soap vs rest
 multipleindexes order of column matters
 How many ways we can achieve thread-safety in classes
 
+Employee
+
+emp id    emp name     mge id
+10         A             -
+20         B             10
+select e.emp id, e.mp name,  m.emp name as  mge name from Employee e join Employee m where e.emp id = m.mge id
+
