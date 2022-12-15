@@ -30,3 +30,54 @@ solution is {2, 4 ,6 ,7}
 
 prepare jdbctemplate
 prepare loggerFactory
+
+
+question 5: 3l 5l jars are there with using these two jar you need to calculate 4litres-> no measurements
+answer: step1  fill 3l jar
+        step2  pour water from 3l jar into 5l jar  -> 5l jar filled with 3ls of water
+        step3  now again fill the 3l jar
+        step4  pour water from 3l jar into 5l jar -> now 5l jar will be filled and 1 litre will be left in 3l jar
+        step5  now empty the 5l jar
+        step6  pour 1litre water which is left in 3l jar to 5l jar
+        step7 fill the 3l jar again and transfer to 5l jar now you will get 4 litres in 5l jar
+
+question 6:   //difference in density length thinkness in both wires but burn time is 30 mins -each wire
+              //burn both in 45 mins how is possible?
+
+              How do we measure forty-five minutes using two identical wires,
+              each of which takes an hour to burn. We have matchsticks with us. The wires burn non-uniformly.
+              So, for example, the two halves of a wire might burn in 10 min and 50 min respectively?
+
+answer:  Simultaneously burn both ends of one rod and one end the other rod
+
+question 7 : double-checked locking pattern in singleton?
+
+answer: public static DclSingleton getInstance() {
+                if (instance == null) {
+                    synchronized (DclSingleton .class) {
+                        if (instance == null) {
+                            instance = new DclSingleton();
+                        }
+                    }
+                }
+                return instance;
+            }
+
+question 8: Atomic variables -Atomic Integer
+answer : AtomicInteger uses combination of volatile & CAS (compare and swap) to achieve thread-safety
+        for Integer Counter.It is non-blocking in nature and thus highly usable in writing high
+         throughput concurrent data structures that can be used under low to moderate thread contention.
+
+question 9: Composition is a strong type of "has-a" relationship because the containing object is
+           its owner. So, objects are tightly coupled,
+           which means if we delete the parent object, the child object will also get deleted with it.
+           ex:
+           Person with address
+
+           Aggregation relationship is also a "has-a" relationship. The only difference between
+           Aggregation and Composition is that in Aggregation, objects are not tightly coupled or
+           don't involve owning. All the objects are independent of each other and can exist even
+           if the parent object gets deleted
+
+           ex:
+           car with wheel
