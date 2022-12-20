@@ -114,3 +114,16 @@ question 10: How you implemented serialization and deserialization?
 question 11: externalization
 answer  If you want to serialize only part of an object, then Externalization is the best option.
         You will have to serialize only required fields of an object.
+
+question 12: partial query using JPA
+Example : @Query("Select e.name, e.contact from Employee e")
+anwser:  List<Object[]> or
+       create any interface
+      and pass as List<Interface>
+
+question 13: why we need Encapsulation ?
+answer:  Encapsulation in Java is a mechanism to wrap up variables(data) and methods(code)
+         together as a single unit. It is the process of hiding information details and
+         protecting data and behavior of the object.
+         and look more examples
+
