@@ -1,0 +1,3 @@
+1) connection pooling
+2) 10 request at a time but we have singleton object in ioc, who will it serve
+answer using statless singleton bean
