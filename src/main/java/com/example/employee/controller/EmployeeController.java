@@ -21,8 +21,9 @@ public class EmployeeController {
 
     @GetMapping("/greetings")
     public String getGreeting(){
-        return userService.getApiResponse();
+        return userService.getFirstRetry();
     }
+
 
     @ExceptionHandler(HttpServerErrorException.class)
     public ResponseEntity<String> handleHttpServerErrorException(HttpServerErrorException runtimeException) {

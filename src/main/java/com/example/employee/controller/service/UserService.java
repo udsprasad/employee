@@ -1,7 +1,7 @@
 package com.example.employee.controller.service;
 
-import com.example.employee.controller.external.UserAPICall;
-import jakarta.annotation.PostConstruct;
+import com.example.employee.controller.external.ExternalService;
+import com.example.employee.controller.external.FirstRetryAndCircuitBreakerAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,15 +10,17 @@ public class UserService {
 
 
     @Autowired
-    private UserAPICall userAPICall;
+    private ExternalService firstRetryAndCircuitBreakerAnnotation;
 
-    public String getApiResponse() {
-        return userAPICall.getUserApicall();
+
+    public String getFirstRetry() {
+        for (int i=0; i< 20; i++) {
+            System.out.println(firstRetryAndCircuitBreakerAnnotation
+                    .getUserApicall(i));
+            System.out.println("-----------");
+        }
+        return "hi";
     }
 
-    @PostConstruct
-    public void checkProxy() {
-        System.out.println("UserAPICall class: " + userAPICall.getClass());
-    }
 
 }
