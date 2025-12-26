@@ -1,0 +1,36 @@
+#server port
+server.port: 8081
+
+spring:
+  application:
+          name: EmployeeService
+
+logging:
+  level:
+    io.github.resilience4j.retry: DEBUG
+
+resilience4j:
+  retry:
+    instances:
+      restTemplateRetry:
+        max-attempts: 3
+        wait-duration: 1s
+        retry-exceptions:
+          - java.lang.RuntimeException
+          - org.springframework.web.client.HttpServerErrorException
+          - org.springframework.web.client.ResourceAccessException
+      securedRestTemplate:
+        max-attempts: 4
+        interval-function:
+          type: exponential
+          initial-interval: 1s
+          multiplier: 2
+          max-interval: 5s
+        retry-exceptions:
+          - org.springframework.web.client.HttpServerErrorException
+          - org.springframework.web.client.ResourceAccessException
+
+
+spring.profiles.active: dev
+
+

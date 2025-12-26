@@ -9,17 +9,6 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '21'
 
-ext {
-    set('springCloudVersion', "2025.1.0")
-}
-
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
-}
-
 
 repositories {
 	mavenCentral()
@@ -28,8 +17,12 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webmvc'
     testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
-    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+    // https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-spring-boot3
+    implementation("io.github.resilience4j:resilience4j-spring-boot3:2.3.0")
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // force to create proxy class for retry
+    implementation "org.aspectj:aspectjweaver:1.9.22"
 }
 
 jacoco {
