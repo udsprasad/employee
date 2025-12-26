@@ -1,5 +1,6 @@
 package com.example.employee.controller;
 
+import com.example.employee.service.Orchestrator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -11,12 +12,16 @@ import java.util.Optional;
 @RequestMapping("/employee")
 public class EmployeeController {
 
-    @Value("${my.greetings}")
-    private String greetings;
+    @Autowired
+    private Orchestrator orchestrator;
 
-    @GetMapping("/greetings")
-    public String getGreeting(){
-        return greetings;
+    @GetMapping("/Async")
+    public String getAsync() throws InterruptedException {
+        long start = System.currentTimeMillis();
+        String result = orchestrator.getWorkFlow();
+        long end = System.currentTimeMillis();
+        System.out.println((end-start)/1000);
+        return result;
     }
 
 }
