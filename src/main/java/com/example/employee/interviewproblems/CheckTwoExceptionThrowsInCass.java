@@ -12,9 +12,9 @@ public class CheckTwoExceptionThrowsInCass {
             throw new Child();
             //throw new Parent();
         } catch (Child child) {
-            child.printStackTrace();
+            System.out.println("Child");
         } catch (Parent parent) {
-            parent.printStackTrace();
+            System.out.println("parent");
         }
 
     }
