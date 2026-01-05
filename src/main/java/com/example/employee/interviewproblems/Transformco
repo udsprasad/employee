@@ -1,3 +1,10 @@
 1) connection pooling
 2) 10 request at a time but we have singleton object in ioc, who will it serve
-answer using stateless singleton bean
+answer:
+Is it safe?
+Yes, if the singleton is stateless. -> stateless means no instance variable then it is threadsafe
+
+No, if it stores request-specific data in fields,
+because requests would interfere with each other
+
+so we need to use synchronitization or atomic variable to make is safe
