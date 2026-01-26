@@ -50,6 +50,11 @@ question 6:   //difference in density length thinkness in both wires but burn ti
 
 answer:  Simultaneously burn both ends of one rod and one end the other rod
 
+puzzle: You have 9 balls, all look identical.
+        8 balls have equal weight, 1 ball is heavier.
+        You have a balance scale and only 2 weighings.
+        Find the heavier ball.
+
 question 7 : double-checked locking pattern in singleton?
 
 answer: public static DclSingleton getInstance() {

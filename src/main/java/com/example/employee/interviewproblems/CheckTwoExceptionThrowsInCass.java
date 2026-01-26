@@ -13,9 +13,9 @@ public class CheckTwoExceptionThrowsInCass {
             //throw new Parent();
         } catch (Child child) {
             System.out.println("Child");
-        } catch (Parent parent) {
+        }/* catch (Parent parent) {
             System.out.println("parent");
-        }
+        }*/
 
     }
 }

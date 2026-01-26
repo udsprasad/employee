@@ -8,5 +8,5 @@ Employee
 emp id    emp name     mge id
 10         A             -
 20         B             10
-select e.emp id, e.mp name,  m.emp name as  mge name from Employee e join Employee m where e.emp id = m.mge id
+select e.emp id, e.mp name,  m.emp name as  mge name from Employee e join Employee m on e.emp id = m.mge id
 

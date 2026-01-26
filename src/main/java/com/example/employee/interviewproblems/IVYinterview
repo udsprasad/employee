@@ -13,6 +13,17 @@ when we will get out of memory error
 can we override static methods - learn overhiding concept
 
 in streams foreach is possible with break
+answer) No, you cannot use break inside forEach() of a stream.
+
+        Because:
+
+        forEach() takes a lambda
+
+        Lambda is not a loop block
+
+        break and continue only work with real loops (for, while, do-while)
+
+        use short-circuit operators like findfirst or findany and use filter
 
 question max value in the array should equals to remaining elements
 int a[] = {10,30,100,40,20};

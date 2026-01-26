@@ -24,3 +24,30 @@ public class RodsOracle {
         System.out.println(rods);
     }
 }
+
+//import java.util.*;
+//
+//public class RodCutON {
+//    public static void main(String[] args) {
+//        int[] rods = {5, 4, 4, 2, 2, 8};
+//
+//        int max = Arrays.stream(rods).max().getAsInt();
+//
+//        int[] freq = new int[max + 1];
+//        for (int rod : rods) {
+//            freq[rod]++;
+//        }
+//
+//        List<Integer> rodSizes = new ArrayList<>();
+//        int remaining = rods.length;
+//
+//        for (int len = 1; len <= max; len++) {
+//            if (freq[len] > 0) {
+//                rodSizes.add(remaining);
+//                remaining -= freq[len]; // remove rods equal to this length
+//            }
+//        }
+//
+//        System.out.println(rodSizes);
+//    }
+//}
